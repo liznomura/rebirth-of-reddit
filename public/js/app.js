@@ -54,29 +54,17 @@ console.log(myBoardsObj);
 }
 
 
-
-
-
-
 //RANDOM DIV
-var oReq = new XMLHttpRequest();
+startXHR(HTTP_METHOD.GET, broadCityUrl, myBoardsListener);
 
-function reqListener(){
-
-  var myObj = JSON.parse(this.responseText);
-  // console.log(myObj);
-
-  randomDiv = document.createElement('div');
-  randomDiv.innerHTML = `<a href="HTTP://WWW.google.com">click me</a>`;
-  document.body.appendChild(randomDiv);
+let randomDiv = document.createElement('div');
+randomDiv.innerHTML = `<a href="HTTP://WWW.google.com">click me</a>`;
+document.body.appendChild(randomDiv);
 
 
 
 
-}
 
-oReq.addEventListener("load", reqListener);
-oReq.open("GET", "https://www.reddit.com/r/BroadCity.json");
-oReq.send();
+
 
 

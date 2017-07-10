@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/liznomura/rebirth-of-reddit.git"
+    "url": "git+https://github.com/KrisBot2000/rebirth-of-reddit.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/liznomura/rebirth-of-reddit/issues"
+    "url": "https://github.com/KrisBot2000/rebirth-of-reddit/issues"
   },
-  "homepage": "https://github.com/liznomura/rebirth-of-reddit#readme",
+  "homepage": "https://github.com/KrisBot2000/rebirth-of-reddit#readme",
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
