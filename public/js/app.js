@@ -41,25 +41,33 @@ const partyParrotUrl = 'https://www.reddit.com/r/PartyParrot.json';
 
 const navBar = document.createElement('div');
 navBar.className = 'nav-bar';
-const ulNav = document.createElement('ul');
-ulNav.className = 'ul-nav';
 
 
 // **** MY BOARDS **** //
 startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
 
+const postDiv = document.createElement('div');
+postDiv.className = postDiv;
+const titleDiv = document.createElement('h2');
+const authorDiv = document.createElement('h3');
+const utcDiv = document.createElement('h3');
+const upVotesDiv = document.createElement('h3');
+const descrDiv = document.createElement('p');
+
 function myBoardsListener() {
 let myBoardsObj = JSON.parse(this.responseText);
 console.log(myBoardsObj);
+
+
 }
 
 
-//RANDOM DIV
-startXHR(HTTP_METHOD.GET, broadCityUrl, myBoardsListener);
+// //RANDOM DIV
+// startXHR(HTTP_METHOD.GET, broadCityUrl, myBoardsListener);
 
-let randomDiv = document.createElement('div');
-randomDiv.innerHTML = `<a href="HTTP://WWW.google.com">click me</a>`;
-document.body.appendChild(randomDiv);
+// let randomDiv = document.createElement('div');
+// randomDiv.innerHTML = `<a href="HTTP://WWW.google.com">click me</a>`;
+// document.body.appendChild(randomDiv);
 
 
 
