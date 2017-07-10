@@ -50,7 +50,7 @@ startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
 
 function myBoardsListener() {
 let myBoardsObj = JSON.parse(this.responseText);
-
+console.log(myBoardsObj);
 }
 
 
@@ -64,7 +64,7 @@ var oReq = new XMLHttpRequest();
 function reqListener(){
 
   var myObj = JSON.parse(this.responseText);
-  console.log(myObj);
+  // console.log(myObj);
 
   randomDiv = document.createElement('div');
   randomDiv.innerHTML = `<a href="HTTP://WWW.google.com">click me</a>`;
