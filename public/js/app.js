@@ -50,7 +50,7 @@ startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
 
 function myBoardsListener() {
 let myBoardsObj = JSON.parse(this.responseText);
-
+console.log(myBoardsObj);
 }
 
 
