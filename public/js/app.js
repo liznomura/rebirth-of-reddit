@@ -30,15 +30,22 @@ const partyParrotUrl = 'https://www.reddit.com/r/PartyParrot.json';
 
 const navBar = document.createElement('div');
 navBar.className = 'nav-bar';
+
 const broadCityNav = document.createElement('div');
 broadCityNav.className = 'broad-city-nav';
 broadCityNav.innerHTML = 'broad city';
+//broadCityNav.addEventListener("click", displayBroadCity)
+
 const advTimeNav = document.createElement('div');
 advTimeNav.className = 'adv-time-nav';
 advTimeNav.innerHTML = 'adv time';
+//advTimeNav.addEventListener("click", displayAdvTime);
+
 const partyParrotNav = document.createElement('div');
 partyParrotNav.className = 'party-parrot-nav';
 partyParrotNav.innerHTML = 'party parrot';
+//partyParrotNav.addEventListener("click", displayPartyParrot);
+
 
 // // **** MY BOARDS **** //
 // startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
@@ -84,6 +91,8 @@ partyParrotNav.innerHTML = 'party parrot';
 //   });
 // }
 
+
+
 // // *** BROAD CITY BOARD *** //
 
 // startXHR(HTTP_METHOD.GET, broadCityUrl, myListener);
@@ -122,6 +131,7 @@ partyParrotNav.innerHTML = 'party parrot';
 //     contentDiv.appendChild(descrDiv);
 //   });
 // }
+
 
 // // **** GET THE APP **** //
 // startXHR(HTTP_METHOD.GET, partyParrotUrl, getTheAppListener);
@@ -166,3 +176,6 @@ partyParrotNav.innerHTML = 'party parrot';
 //     contentDiv.appendChild(postDiv);
 //   });
 // }
+
+
+
