@@ -40,9 +40,6 @@ const partyParrotNav = document.createElement('div');
 partyParrotNav.className = 'party-parrot-nav';
 partyParrotNav.innerHTML = 'party parrot';
 
-
-
-
 // // **** MY BOARDS **** //
 // startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
 
