@@ -38,61 +38,65 @@ const advTimeNav = document.getElementById('advtime');
 const awwNav = document.getElementById('aww');
 
 
-// // *** BROAD CITY BOARD *** //
+//HOVER
+const fbIcon = document.getElementById('fbIcon');
+const igIcon = document.getElementById('igIcon');
 
-broadCityNav.addEventListener("click", function() {
-  startXHR(HTTP_METHOD.GET, broadCityUrl, myListener);
-  function myListener() {
-    let myBoardsObj = JSON.parse(this.responseText);
-    let myArray = myBoardsObj.data.children;
+// // // *** BROAD CITY BOARD *** //
 
-    myArray
-    .forEach( post => {
+// // broadCityNav.addEventListener("click", function() {
+//   startXHR(HTTP_METHOD.GET, broadCityUrl, myListener);
+//   function myListener() {
+//     let myBoardsObj = JSON.parse(this.responseText);
+//     let myArray = myBoardsObj.data.children;
 
-      let randomNum = Math.floor(Math.random()*30);
-      let imageTag = "http://placebeard.it/640x480/"+randomNum;
+//     myArray
+//     .forEach( post => {
 
-      const postDiv = document.createElement('div');
-      const titleDiv = document.createElement('h2');
-      const authorDiv = document.createElement('h3');
-      const utcDiv = document.createElement('h3');
-      const upVotesDiv = document.createElement('h3');
-      const descrDiv = document.createElement('p');
-      const contentDiv = document.getElementById('content');
+//       let randomNum = Math.floor(Math.random()*30);
+//       let imageTag = "http://placebeard.it/640x480/"+randomNum;
 
-      postDiv.innerHTML = `<img src = ${imageTag}></img>`;
-      postDiv.className = postDiv;
-      titleDiv.innerText = post.data.title;
-      authorDiv.innerText = post.data.author;
-      utcDiv.innerText = moment.unix(post.data.created_utc).fromNow();
-      upVotesDiv.innerText = post.data.ups + ' upvotes';
-      descrDiv.innerText = post.data.selftext;
+//       const postDiv = document.createElement('div');
+//       const titleDiv = document.createElement('h2');
+//       const authorDiv = document.createElement('h3');
+//       const utcDiv = document.createElement('h3');
+//       const upVotesDiv = document.createElement('h3');
+//       const descrDiv = document.createElement('p');
+//       const contentDiv = document.getElementById('content');
 
-      contentDiv.appendChild(postDiv);
-      contentDiv.appendChild(titleDiv);
-      contentDiv.appendChild(authorDiv);
-      contentDiv.appendChild(utcDiv);
-      contentDiv.appendChild(upVotesDiv);
-      contentDiv.appendChild(descrDiv);
-      if(contentDiv.children.length === 0) {
-        contentDiv.appendChild(postDiv);
-      } else {
-        contentDiv.replaceChild(postDiv, contentDiv.children[0]);
-      }
-    });
-  }
-});
+//       postDiv.innerHTML = `<img src = ${imageTag}></img>`;
+//       postDiv.className = postDiv;
+//       titleDiv.innerText = post.data.title;
+//       authorDiv.innerText = post.data.author;
+//       utcDiv.innerText = moment.unix(post.data.created_utc).fromNow();
+//       upVotesDiv.innerText = post.data.ups + ' upvotes';
+//       descrDiv.innerText = post.data.selftext;
 
-// // **** MY BOARDS **** //
-advTimeNav.addEventListener("click", function(){
+//       contentDiv.appendChild(postDiv);
+//       contentDiv.appendChild(titleDiv);
+//       contentDiv.appendChild(authorDiv);
+//       contentDiv.appendChild(utcDiv);
+//       contentDiv.appendChild(upVotesDiv);
+//       contentDiv.appendChild(descrDiv);
+//       if(contentDiv.children.length === 0) {
+//         contentDiv.appendChild(postDiv);
+//       } else {
+//         contentDiv.replaceChild(postDiv, contentDiv.children[0]);
+//       }
+//     });
+//   }
+// });
+
+// // // **** MY BOARDS **** //
+// advTimeNav.addEventListener("click", function(){
   startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
   function myBoardsListener() {
 
     let myBoardsObj = JSON.parse(this.responseText);
     let myBoardsChildren = myBoardsObj.data.children;
 
-    myBoardsChildren
-    .forEach( post => {
+    myBoardsChildren.forEach( post => {
+      console.log(myBoardsObj);
       const postDiv = document.createElement('div');
       postDiv.className = 'postDiv';
       const imageDiv = document.createElement('div');
@@ -123,66 +127,66 @@ advTimeNav.addEventListener("click", function(){
     postDiv.appendChild(utcDiv);
     postDiv.appendChild(upVotesDiv);
     postDiv.appendChild(descrDiv);
-    if(contentDiv.children.length === 0) {
+    // if(contentDiv.children.length === 0) {
       contentDiv.appendChild(postDiv);
-    } else {
-      contentDiv.replaceChild(postDiv, contentDiv.children[0]);
-    }
+    // } else {
+    //   contentDiv.replaceChild(postDiv, contentDiv.children[0]);
+    // }
   });
   }
-});
+// });
 
 
 
 
 
-// // **** GET THE APP **** //
-awwNav.addEventListener("click", function() {
+// // // **** GET THE APP **** //
+// awwNav.addEventListener("click", function() {
 
-  startXHR(HTTP_METHOD.GET, awwUrl, getTheAppListener);
+//   startXHR(HTTP_METHOD.GET, awwUrl, getTheAppListener);
 
-  function getTheAppListener() {
+//   function getTheAppListener() {
 
-    let getTheAppObj = JSON.parse(this.responseText);
-    let getTheAppChildren = getTheAppObj.data.children;
+//     let getTheAppObj = JSON.parse(this.responseText);
+//     let getTheAppChildren = getTheAppObj.data.children;
 
-    getTheAppChildren
-    .forEach( post => {
-      const postDiv = document.createElement('div');
-      postDiv.className = 'postDiv';
-      const imageDiv = document.createElement('div');
-      const titleDiv = document.createElement('h2');
-      const authorDiv = document.createElement('h3');
-      const utcDiv = document.createElement('h3');
-      const upVotesDiv = document.createElement('h3');
-      const descrDiv = document.createElement('p');
-      const contentDiv = document.getElementById('content');
+//     getTheAppChildren
+//     .forEach( post => {
+//       const postDiv = document.createElement('div');
+//       postDiv.className = 'postDiv';
+//       const imageDiv = document.createElement('div');
+//       const titleDiv = document.createElement('h2');
+//       const authorDiv = document.createElement('h3');
+//       const utcDiv = document.createElement('h3');
+//       const upVotesDiv = document.createElement('h3');
+//       const descrDiv = document.createElement('p');
+//       const contentDiv = document.getElementById('content');
 
-    //image validation
-    const myImage = document.createElement('img');
-    myImage.onerror = function(event) {
-      myImage.src = 'https://s-media-cache-ak0.pinimg.com/736x/44/11/aa/4411aa3d0a35c1e19121275e0eda757e--simple-doodles-cute-doodles-tumblr.jpg';
-    };
-    myImage.src = `${post.data.url}`;
-    imageDiv.appendChild(myImage);
+//     //image validation
+//     const myImage = document.createElement('img');
+//     myImage.onerror = function(event) {
+//       myImage.src = 'https://s-media-cache-ak0.pinimg.com/736x/44/11/aa/4411aa3d0a35c1e19121275e0eda757e--simple-doodles-cute-doodles-tumblr.jpg';
+//     };
+//     myImage.src = `${post.data.url}`;
+//     imageDiv.appendChild(myImage);
 
-    titleDiv.innerHTML = post.data.title;
-    authorDiv.innerHTML = post.data.author;
-    utcDiv.innerHTML = moment.unix(post.data.created_utc).fromNow();
-    upVotesDiv.innerHTML = post.data.ups + ' upvotes';
-    descrDiv.innerHTML = post.data.selftext;
+//     titleDiv.innerHTML = post.data.title;
+//     authorDiv.innerHTML = post.data.author;
+//     utcDiv.innerHTML = moment.unix(post.data.created_utc).fromNow();
+//     upVotesDiv.innerHTML = post.data.ups + ' upvotes';
+//     descrDiv.innerHTML = post.data.selftext;
 
-    postDiv.appendChild(imageDiv);
-    postDiv.appendChild(titleDiv);
-    postDiv.appendChild(authorDiv);
-    postDiv.appendChild(utcDiv);
-    postDiv.appendChild(upVotesDiv);
-    postDiv.appendChild(descrDiv);
-    if(contentDiv.children.length === 0) {
-      contentDiv.appendChild(postDiv);
-    } else {
-      contentDiv.replaceChild(postDiv, contentDiv.children[0]);
-    }
-  });
-  }
-});
+//     postDiv.appendChild(imageDiv);
+//     postDiv.appendChild(titleDiv);
+//     postDiv.appendChild(authorDiv);
+//     postDiv.appendChild(utcDiv);
+//     postDiv.appendChild(upVotesDiv);
+//     postDiv.appendChild(descrDiv);
+//     if(contentDiv.children.length === 0) {
+//       contentDiv.appendChild(postDiv);
+//     } else {
+//       contentDiv.replaceChild(postDiv, contentDiv.children[0]);
+//     }
+//   });
+//   }
+// });

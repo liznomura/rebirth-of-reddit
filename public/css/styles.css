@@ -1,8 +1,51 @@
 body {
-  background-image: url("../assets/bg.jpg"); }
-<<<<<<< HEAD
+  background-image: url("/assets/bg.jpg");
+  margin: 0px;
+  min-height: 100%; }
 
 .header {
+  background: url("/assets/header_bg.svg");
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: white; }
-=======
->>>>>>> 07efa8b6510eee63bebb3411f51cad877c838d7b
+  .header #logo-img {
+    display: block;
+    margin: auto; }
+
+#navbar {
+  background-color: #39393b;
+  padding: 10px;
+  text-align: center;
+  color: #797a7d;
+  font-size: 24px; }
+  #navbar a {
+    color: #797a7d;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif; }
+    #navbar a:hover {
+      color: #F15A29; }
+
+#footer {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  background-color: #39393b; }
+  #footer .social-media {
+    padding: 0px 5px 0px 5px; }
+    #footer .social-media a svg:hover #facebook {
+      fill: #fff; }
+
+/*
+    postDiv.appendChild(imageDiv);
+    postDiv.appendChild(titleDiv);
+    postDiv.appendChild(authorDiv);
+    postDiv.appendChild(utcDiv);
+    postDiv.appendChild(upVotesDiv);
+    postDiv.appendChild(descrDiv);
+    contentDiv.appendChild(postDiv);
+    */
+.postDiv {
+  display: flex;
+  justify-content: center; }
