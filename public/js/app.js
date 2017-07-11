@@ -51,10 +51,10 @@ const partyParrotNav = document.createElement('div');
 partyParrotNav.className = 'party-parrot-nav';
 partyParrotNav.innerHTML = 'party parrot';
 
-document.body.appendChild(navBar);
-navBar.appendChild('broadCityNav');
-navBar.appendChild('advTimeNav');
-navBar.appendChild('partyParrotNav');
+// document.body.appendChild(navBar);
+// navBar.appendChild('broadCityNav');
+// navBar.appendChild('advTimeNav');
+// navBar.appendChild('partyParrotNav');
 
 // **** MY BOARDS **** //
 startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
