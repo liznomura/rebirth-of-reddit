@@ -1,2 +1,5 @@
 body {
-  background-color: black; }
+  background-image: url("../assets/bg.jpg"); }
+
+.header {
+  background-color: white; }
