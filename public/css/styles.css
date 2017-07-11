@@ -1,7 +1,8 @@
 body {
   background-image: url("/assets/bg.jpg");
   margin: 0px;
-  min-height: 100%; }
+  min-height: 100%;
+  font-size: 16px; }
 
 .header {
   background: url("/assets/header_bg.svg");
@@ -38,14 +39,51 @@ body {
       fill: #fff; }
 
 /*
-    postDiv.appendChild(imageDiv);
-    postDiv.appendChild(titleDiv);
-    postDiv.appendChild(authorDiv);
-    postDiv.appendChild(utcDiv);
-    postDiv.appendChild(upVotesDiv);
-    postDiv.appendChild(descrDiv);
-    contentDiv.appendChild(postDiv);
+      const postDiv = document.createElement('div');
+      postDiv.className = 'postDiv';
+      const imageDiv = document.createElement('div');
+      imageDiv.className = 'imageDiv';
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'titleDiv';
+      const authorDiv = document.createElement('div');
+      authorDiv.className = 'authorDiv';
+      const utcDiv = document.createElement('div');
+      utcDiv.className = 'utcDiv';
+      const upVotesDiv = document.createElement('div');
+      upVotesDiv.className = 'upVotesDiv';
+      const descrDiv = document.createElement('p');
+      descrDiv.className = 'descrDiv';
+      const contentDiv = document.getElementById('content');
     */
 .postDiv {
-  display: flex;
-  justify-content: center; }
+  margin: auto;
+  background-color: white;
+  width: 30%; }
+  .postDiv .imageDiv {
+    margin: auto;
+    padding: 10px;
+    background-color: yellow;
+    display: inline-block; }
+    .postDiv .imageDiv img {
+      max-height: 100%;
+      max-width: 100%; }
+
+.titleDiv {
+  background-color: lightblue;
+  height: auto;
+  text-align: center; }
+
+.authorDiv, .utcDiv, .upVotesDiv {
+  background-color: green;
+  display: inline-block;
+  text-align: center;
+  height: auto;
+  width: 33.33333333%; }
+
+.descrDiv {
+  overflow: hidden;
+  padding: 8px 10px 10px 10px;
+  line-height: 1.2rem;
+  max-height: 4.325rem;
+  text-align: justify;
+  background-color: pink; }

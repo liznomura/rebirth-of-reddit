@@ -100,11 +100,17 @@ const igIcon = document.getElementById('igIcon');
       const postDiv = document.createElement('div');
       postDiv.className = 'postDiv';
       const imageDiv = document.createElement('div');
-      const titleDiv = document.createElement('h2');
-      const authorDiv = document.createElement('h3');
-      const utcDiv = document.createElement('h3');
-      const upVotesDiv = document.createElement('h3');
+      imageDiv.className = 'imageDiv';
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'titleDiv';
+      const authorDiv = document.createElement('div');
+      authorDiv.className = 'authorDiv';
+      const utcDiv = document.createElement('div');
+      utcDiv.className = 'utcDiv';
+      const upVotesDiv = document.createElement('div');
+      upVotesDiv.className = 'upVotesDiv';
       const descrDiv = document.createElement('p');
+      descrDiv.className = 'descrDiv';
       const contentDiv = document.getElementById('content');
 
     //image validation
