@@ -21,6 +21,8 @@ const HTTP_METHOD = {
   GET: 'GET'
 };
 
+const body = document.body;
+
 // function for XHR
 // use this for all XHR calls
 function startXHR(method, source, cb) {
@@ -56,21 +58,57 @@ const descrDiv = document.createElement('p');
 
 function myBoardsListener() {
 let myBoardsObj = JSON.parse(this.responseText);
-console.log(myBoardsObj);
+
 
 
 }
 
+//BROAD CITY BOARD
 
-// //RANDOM DIV
-// startXHR(HTTP_METHOD.GET, broadCityUrl, myBoardsListener);
+startXHR(HTTP_METHOD.GET, broadCityUrl, myListener);
 
-// let randomDiv = document.createElement('div');
-// randomDiv.innerHTML = `<a href="HTTP://WWW.google.com">click me</a>`;
-// document.body.appendChild(randomDiv);
+function myListener() {
+let myBoardsObj = JSON.parse(this.responseText);
+//console.log(myBoardsObj);
+
+myArray = myBoardsObj.data.children;
+console.log (myArray);
+
+myArray.forEach(function(post){
+
+  let randomNum = Math.floor(Math.random()*30);
+  let imageTag = "http://placebeard.it/640x480/"+randomNum;
+
+  const postDiv = document.createElement('div');
+  postDiv.innerHTML = `<img src = ${imageTag}></img>`;
+  postDiv.className = postDiv;
+  body.appendChild(postDiv);
+
+  const titleDiv = document.createElement('h2');
+  titleDiv.innerText = post.data.title;
+  body.appendChild(titleDiv);
+
+  const authorDiv = document.createElement('h3');
+  authorDiv.innerText = post.data.author;
+  body.appendChild(authorDiv);
+
+  const utcDiv = document.createElement('h3');
+
+  utcDiv.innerText = moment.unix(post.data.created_utc).fromNow();
+  body.appendChild(utcDiv);
+
+  const upVotesDiv = document.createElement('h3');
+  upVotesDiv.innerText = post.data.ups;
+  body.appendChild(upVotesDiv);
+
+  const descrDiv = document.createElement('p');
+  descrDiv.innerText = post.data.selftext;
+  body.appendChild(descrDiv);
+
+});
 
 
-
+}
 
 
 
