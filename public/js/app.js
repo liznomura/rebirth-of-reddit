@@ -1,17 +1,4 @@
 /*jshint esversion:6 */
-// STRUCTURE OF AN XML REQUEST:
-// var oReq = new XMLHttpRequest();
-
-// function reqListener(){
-
-  // var myObj = JSON.parse(this.responseText);
-
-// }
-
-// oReq.addEventListener("load", reqListener);
-// oReq.open("GET", "http://swapi.co/api/people/4/");
-// oReq.send();
-
 
 // *** ABSTRACTION *** //
 // Http method object
@@ -37,7 +24,7 @@ function startXHR(method, source, cb) {
 // urls
 // use these for the source
 const broadCityUrl = 'https://www.reddit.com/r/BroadCity.json';
-const advTimeUrl = 'https://www.reddit.com/r/adventuretime.json';
+const advTimeUrl = 'https://www.reddit.com/r/leagueoflegends.json';
 const partyParrotUrl = 'https://www.reddit.com/r/PartyParrot.json';
 
 
@@ -53,104 +40,132 @@ const partyParrotNav = document.createElement('div');
 partyParrotNav.className = 'party-parrot-nav';
 partyParrotNav.innerHTML = 'party parrot';
 
-// document.body.appendChild(navBar);
-// navBar.appendChild('broadCityNav');
-// navBar.appendChild('advTimeNav');
-// navBar.appendChild('partyParrotNav');
-
-// **** MY BOARDS **** //
-startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
-
-
-function myBoardsListener() {
-
-let myBoardsObj = JSON.parse(this.responseText);
-  // console.log(myBoardsObj);
-
-
-  for(let i = 0; i < myBoardsObj.data.children.length; i++) {
-    const postDiv = document.createElement('div');
-    postDiv.className = 'postDiv';
-    const imageDiv = document.createElement('div');
-    const titleDiv = document.createElement('h2');
-    const authorDiv = document.createElement('h3');
-    const utcDiv = document.createElement('h3');
-    const upVotesDiv = document.createElement('h3');
-    const descrDiv = document.createElement('p');
-    const contentDiv = document.getElementById('content');
-
-    const possibleThumbnails = ['self', 'nsfw', 'spoiler'];
-
-if(possibleThumbnails.indexOf(myBoardsObj.data.children[i].data.thumbnail) >= 0) {
-  imageDiv.innerHTML = `<img src=https://upload.wikimedia.org/wikipedia/en/3/37/Adventure_Time_-_Title_card.png alt="place-img"></img>`;
-} else {
-    imageDiv.innerHTML = `<img src=${myBoardsObj.data.children[i].data.url} alt="img"></img>`;
-  }
-    titleDiv.innerHTML = `${myBoardsObj.data.children[i].data.title}`;
-    authorDiv.innerHTML = `${myBoardsObj.data.children[i].data.author}`;
-    utcDiv.innerHTML = moment.unix(myBoardsObj.data.children[i].data.created_utc).fromNow();
-    upVotesDiv.innerHTML = `${myBoardsObj.data.children[i].data.ups}`;
-    descrDiv.innerHTML = `${myBoardsObj.data.children[i].data.selftext}`;
-
-    postDiv.appendChild(imageDiv);
-    postDiv.appendChild(titleDiv);
-    postDiv.appendChild(authorDiv);
-    postDiv.appendChild(utcDiv);
-    postDiv.appendChild(upVotesDiv);
-    postDiv.appendChild(descrDiv);
-    contentDiv.appendChild(postDiv);
-  }
-
-}
-
-//BROAD CITY BOARD
-
-startXHR(HTTP_METHOD.GET, broadCityUrl, myListener);
-
-function myListener() {
-let myBoardsObj = JSON.parse(this.responseText);
-//console.log(myBoardsObj);
-
-myArray = myBoardsObj.data.children;
-console.log (myArray);
-
-myArray.forEach(function(post){
-
-  let randomNum = Math.floor(Math.random()*30);
-  let imageTag = "http://placebeard.it/640x480/"+randomNum;
-
-  const postDiv = document.createElement('div');
-  postDiv.innerHTML = `<img src = ${imageTag}></img>`;
-  postDiv.className = postDiv;
-  body.appendChild(postDiv);
-
-  const titleDiv = document.createElement('h2');
-  titleDiv.innerText = post.data.title;
-  body.appendChild(titleDiv);
-
-  const authorDiv = document.createElement('h3');
-  authorDiv.innerText = post.data.author;
-  body.appendChild(authorDiv);
-
-  const utcDiv = document.createElement('h3');
-
-  utcDiv.innerText = moment.unix(post.data.created_utc).fromNow();
-  body.appendChild(utcDiv);
-
-  const upVotesDiv = document.createElement('h3');
-  upVotesDiv.innerText = post.data.ups;
-  body.appendChild(upVotesDiv);
-
-  const descrDiv = document.createElement('p');
-  descrDiv.innerText = post.data.selftext;
-  body.appendChild(descrDiv);
-
-});
-
-
-}
 
 
 
+// // **** MY BOARDS **** //
+// startXHR(HTTP_METHOD.GET, advTimeUrl, myBoardsListener);
 
+// function myBoardsListener() {
 
+//   let myBoardsObj = JSON.parse(this.responseText);
+//   let myBoardsChildren = myBoardsObj.data.children;
+
+//   myBoardsChildren
+//   .forEach( post => {
+//     const postDiv = document.createElement('div');
+//     postDiv.className = 'postDiv';
+//     const imageDiv = document.createElement('div');
+//     const titleDiv = document.createElement('h2');
+//     const authorDiv = document.createElement('h3');
+//     const utcDiv = document.createElement('h3');
+//     const upVotesDiv = document.createElement('h3');
+//     const descrDiv = document.createElement('p');
+//     const contentDiv = document.getElementById('content');
+
+//     //image validation
+//     const myImage = document.createElement('img');
+//     myImage.onerror = function(event) {
+//       myImage.src = 'https://upload.wikimedia.org/wikipedia/en/3/37/Adventure_Time_-_Title_card.png';
+//     };
+//     myImage.src = `${post.data.url}`;
+//     imageDiv.appendChild(myImage);
+
+//     titleDiv.innerHTML = post.data.title;
+//     authorDiv.innerHTML = post.data.author;
+//     utcDiv.innerHTML = moment.unix(post.data.created_utc).fromNow();
+//     upVotesDiv.innerHTML = post.data.ups + ' upvotes';
+//     descrDiv.innerHTML = post.data.selftext;
+
+//     postDiv.appendChild(imageDiv);
+//     postDiv.appendChild(titleDiv);
+//     postDiv.appendChild(authorDiv);
+//     postDiv.appendChild(utcDiv);
+//     postDiv.appendChild(upVotesDiv);
+//     postDiv.appendChild(descrDiv);
+//     contentDiv.appendChild(postDiv);
+//   });
+// }
+
+// // *** BROAD CITY BOARD *** //
+
+// startXHR(HTTP_METHOD.GET, broadCityUrl, myListener);
+
+// function myListener() {
+//   let myBoardsObj = JSON.parse(this.responseText);
+//   let myArray = myBoardsObj.data.children;
+
+//   myArray
+//   .forEach( post => {
+
+//     let randomNum = Math.floor(Math.random()*30);
+//     let imageTag = "http://placebeard.it/640x480/"+randomNum;
+
+//     const postDiv = document.createElement('div');
+//     const titleDiv = document.createElement('h2');
+//     const authorDiv = document.createElement('h3');
+//     const utcDiv = document.createElement('h3');
+//     const upVotesDiv = document.createElement('h3');
+//     const descrDiv = document.createElement('p');
+//     const contentDiv = document.getElementById('content');
+
+//     postDiv.innerHTML = `<img src = ${imageTag}></img>`;
+//     postDiv.className = postDiv;
+//     titleDiv.innerText = post.data.title;
+//     authorDiv.innerText = post.data.author;
+//     utcDiv.innerText = moment.unix(post.data.created_utc).fromNow();
+//     upVotesDiv.innerText = post.data.ups + ' upvotes';
+//     descrDiv.innerText = post.data.selftext;
+
+//     contentDiv.appendChild(postDiv);
+//     contentDiv.appendChild(titleDiv);
+//     contentDiv.appendChild(authorDiv);
+//     contentDiv.appendChild(utcDiv);
+//     contentDiv.appendChild(upVotesDiv);
+//     contentDiv.appendChild(descrDiv);
+//   });
+// }
+
+// // **** GET THE APP **** //
+// startXHR(HTTP_METHOD.GET, partyParrotUrl, getTheAppListener);
+
+// function getTheAppListener() {
+
+//   let getTheAppObj = JSON.parse(this.responseText);
+//   let getTheAppChildren = getTheAppObj.data.children;
+
+//   getTheAppChildren
+//   .forEach( post => {
+//     const postDiv = document.createElement('div');
+//     postDiv.className = 'postDiv';
+//     const imageDiv = document.createElement('div');
+//     const titleDiv = document.createElement('h2');
+//     const authorDiv = document.createElement('h3');
+//     const utcDiv = document.createElement('h3');
+//     const upVotesDiv = document.createElement('h3');
+//     const descrDiv = document.createElement('p');
+//     const contentDiv = document.getElementById('content');
+
+//     //image validation
+//     const myImage = document.createElement('img');
+//     myImage.onerror = function(event) {
+//       myImage.src = 'http://cultofthepartyparrot.com/assets/parrot.svg';
+//     };
+//     myImage.src = `${post.data.url}`;
+//     imageDiv.appendChild(myImage);
+
+//     titleDiv.innerHTML = post.data.title;
+//     authorDiv.innerHTML = post.data.author;
+//     utcDiv.innerHTML = moment.unix(post.data.created_utc).fromNow();
+//     upVotesDiv.innerHTML = post.data.ups + ' upvotes';
+//     descrDiv.innerHTML = post.data.selftext;
+
+//     postDiv.appendChild(imageDiv);
+//     postDiv.appendChild(titleDiv);
+//     postDiv.appendChild(authorDiv);
+//     postDiv.appendChild(utcDiv);
+//     postDiv.appendChild(upVotesDiv);
+//     postDiv.appendChild(descrDiv);
+//     contentDiv.appendChild(postDiv);
+//   });
+// }
