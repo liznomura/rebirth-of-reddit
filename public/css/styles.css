@@ -5,13 +5,10 @@ body {
   font-size: 16px; }
 
 .header {
-  background: url("/assets/header_bg.svg");
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 5px 5px 2px 5px;
   background-color: white; }
-  .header #logo-img {
-    display: block;
-    margin: auto; }
+  .header img {
+    display: block; }
 
 #navbar {
   background-color: #39393b;
@@ -34,7 +31,7 @@ body {
   bottom: 0;
   background-color: #39393b; }
   #footer .social-media {
-    padding: 0px 5px 0px 5px; }
+    padding: 0 5px 0px 5px; }
     #footer .social-media a svg:hover #facebook {
       fill: #fff; }
 
@@ -56,34 +53,49 @@ body {
       const contentDiv = document.getElementById('content');
     */
 .postDiv {
-  margin: auto;
+  margin: 15px auto;
+  padding: 15px;
   background-color: white;
-  width: 30%; }
+  width: 85%;
+  border: 5px solid white; }
+  .postDiv:hover {
+    border: 5px solid #F59120; }
   .postDiv .imageDiv {
     margin: auto;
-    padding: 10px;
-    background-color: yellow;
+    padding: 5px 0;
+    background-color: white;
     display: inline-block; }
     .postDiv .imageDiv img {
       max-height: 100%;
       max-width: 100%; }
 
 .titleDiv {
-  background-color: lightblue;
-  height: auto;
-  text-align: center; }
-
-.authorDiv, .utcDiv, .upVotesDiv {
-  background-color: green;
-  display: inline-block;
-  text-align: center;
-  height: auto;
-  width: 33.33333333%; }
-
-.descrDiv {
+  background-color: white;
   overflow: hidden;
-  padding: 8px 10px 10px 10px;
+  line-height: 1.8rem;
+  max-height: 3.6rem;
+  height: auto;
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px; }
+
+.subtitleDiv {
+  background-color: white;
+  overflow: hidden;
+  padding: 10px 0;
   line-height: 1.2rem;
-  max-height: 4.325rem;
-  text-align: justify;
-  background-color: pink; }
+  max-height: 2.4rem;
+  font-size: 18px;
+  color: #a8a8a8;
+  height: auto;
+  font-family: 'Lato', sans-serif; }
+
+.descrContainer {
+  overflow: hidden;
+  background-color: white; }
+  .descrContainer .descrP {
+    overflow: hidden;
+    line-height: 1.2rem;
+    max-height: 4.8rem;
+    background-color: white;
+    margin: 0;
+    font-family: 'Lato', sans-serif; }

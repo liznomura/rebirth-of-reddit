@@ -1,3 +1,9 @@
+//variables
+$light-orange: #F59120;
+$dark-orange: #F15A29;
+$nav-bg: #39393b;
+$nav-text: #797a7d;
+$subtitle-text: #a8a8a8;
 
     body {
       background-image: url('/assets/bg.jpg');
@@ -5,28 +11,28 @@
       min-height: 100%;
       font-size: 16px;
     }
-
     .header {
-      background: url('/assets/header_bg.svg');
-      background-position: center;
-      background-repeat: no-repeat;
+      padding: 5px 5px 2px 5px;
+      // background: url('/assets/header_bg.svg');
+      // background-position: center;
+      // background-repeat: no-repeat;
       background-color: white;
 
-      #logo-img {
+      img {
         display: block;
-        margin: auto;
+        // margin: auto;
       }
     }
 
     #navbar {
-      background-color: #39393b;
+      background-color: $nav-bg;
       padding: 10px;
       text-align: center;
-      color: #797a7d;
+      color: $nav-text;
       font-size: 24px;
 
       a {
-        color: #797a7d;
+        color: $nav-text;
         font-size: 18px;
         text-decoration: none;
         font-family: 'Oswald', sans-serif;
@@ -42,10 +48,10 @@
       text-align: center;
       width: 100%;
       bottom: 0;
-      background-color: #39393b;
+      background-color: $nav-bg;
 
       .social-media{
-        padding: 0px 5px 0px 5px;
+        padding: 0 5px 0px 5px;
 
         a svg:hover #facebook {
           fill: #fff;
@@ -71,14 +77,22 @@
     */
 
 .postDiv {
-  margin: auto;
+  margin: 15px auto;
+  padding: 15px;
   background-color: white;
-  width: 30%;
+  width: 85%;
+  border: 5px solid white;
+
+  &:hover {
+    border: 5px solid $light-orange;
+  }
+
   .imageDiv {
     margin: auto;
-    padding: 10px;
-    background-color: yellow;
+    padding: 5px 0;
+    background-color: white;
     display: inline-block;
+
     img {
       max-height: 100%;
       max-width: 100%;
@@ -86,42 +100,42 @@
   }
 }
 
-
-
 .titleDiv {
-  background-color: lightblue;
-    height: auto;
-    text-align: center;
-}
-
-.authorDiv, .utcDiv, .upVotesDiv {
-  background-color: green;
-  display: inline-block;
-  text-align: center;
-  height: auto;
-  width: 33.33333333%;
-}
-
-// .utcDiv {
-//   background-color: orange;
-//     height: auto;
-// }
-
-// .upVotesDiv {
-//   background-color: red;
-//     height: auto;
-// }
-
-.descrDiv {
+  background-color: white;
   overflow: hidden;
-  padding: 8px 10px 10px 10px;
-  line-height: 1.2rem;
-  max-height: 4.325rem;
-  text-align: justify;
-  background-color: pink;
+  line-height: 1.8rem;
+  max-height: 3.6rem;
+  height: auto;
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
 }
 
+.subtitleDiv {
+  background-color: white;
+  overflow: hidden;
+  padding: 10px 0;
+  line-height: 1.2rem;
+  max-height: 2.4rem;
+  font-size: 18px;
+  color: $subtitle-text;
+  height: auto;
+  font-family: 'Lato', sans-serif;
+}
 
+.descrContainer {
+  overflow: hidden;
+
+  background-color: white;
+
+  .descrP {
+    overflow: hidden;
+    line-height: 1.2rem;
+    max-height: 4.8rem;
+    background-color: white;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+}
 
 
 

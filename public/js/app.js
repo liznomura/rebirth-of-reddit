@@ -96,21 +96,24 @@ const igIcon = document.getElementById('igIcon');
     let myBoardsChildren = myBoardsObj.data.children;
 
     myBoardsChildren.forEach( post => {
-      console.log(myBoardsObj);
       const postDiv = document.createElement('div');
       postDiv.className = 'postDiv';
       const imageDiv = document.createElement('div');
       imageDiv.className = 'imageDiv';
       const titleDiv = document.createElement('div');
       titleDiv.className = 'titleDiv';
+      const subtitleDiv = document.createElement('div');
+      subtitleDiv.className = 'subtitleDiv';
       const authorDiv = document.createElement('div');
       authorDiv.className = 'authorDiv';
       const utcDiv = document.createElement('div');
       utcDiv.className = 'utcDiv';
       const upVotesDiv = document.createElement('div');
       upVotesDiv.className = 'upVotesDiv';
-      const descrDiv = document.createElement('p');
-      descrDiv.className = 'descrDiv';
+      const descrContainer = document.createElement('div');
+      descrContainer.className = 'descrContainer';
+      const descrP= document.createElement('p');
+      descrP.className = 'descrP';
       const contentDiv = document.getElementById('content');
 
     //image validation
@@ -122,17 +125,25 @@ const igIcon = document.getElementById('igIcon');
     imageDiv.appendChild(myImage);
 
     titleDiv.innerHTML = post.data.title;
-    authorDiv.innerHTML = post.data.author;
-    utcDiv.innerHTML = moment.unix(post.data.created_utc).fromNow();
-    upVotesDiv.innerHTML = post.data.ups + ' upvotes';
-    descrDiv.innerHTML = post.data.selftext;
+    let author = 'by ' + post.data.author;
+    let utc = moment.unix(post.data.created_utc).fromNow();
+    let upVotes = post.data.ups + ' upvotes';
+    subtitleDiv.innerHTML = `${author} &#149 ${utc} &#149 ${upVotes}`;
+    descrP.innerHTML = post.data.selftext;
+    descrContainer.appendChild(descrP);
+
+
 
     postDiv.appendChild(imageDiv);
     postDiv.appendChild(titleDiv);
-    postDiv.appendChild(authorDiv);
-    postDiv.appendChild(utcDiv);
-    postDiv.appendChild(upVotesDiv);
-    postDiv.appendChild(descrDiv);
+    postDiv.appendChild(subtitleDiv);
+    // postDiv.appendChild(authorDiv);
+    // postDiv.appendChild(utcDiv);
+    // postDiv.appendChild(upVotesDiv);
+    if(post.data.selftext !== "") {
+      console.log(post.data.selftext);
+    postDiv.appendChild(descrContainer);
+  }
     // if(contentDiv.children.length === 0) {
       contentDiv.appendChild(postDiv);
     // } else {
